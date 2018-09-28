@@ -18,3 +18,4 @@ var friendsArray = [
 ]
 
 console.log(friendsArray)
+
