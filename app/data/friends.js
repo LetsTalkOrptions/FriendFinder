@@ -17,5 +17,33 @@ var friendsArray = [
     }
 ]
 
-console.log(friendsArray)
 
+
+function runFriendQuery() {
+    $.ajax({ url: "/api/friends", method: "GET" })
+    .then(function(friendsList) {
+        console.log(friendsArray);
+        console.log("--------------------------------");
+
+        // Loop through to show all friends
+        for (var i = 0; i <friendsList.length; i++) {
+            var friendsData = $("#friendsData");
+
+            var listItem = $("<li class='list-group-item mt-4'>");
+
+            listItem.append(
+            $("<h2>").text("" + (i + 1)),
+            $("<hr>"),
+            $("<h2>").text("ID: " + tableData[i].customerID),
+            $("<h2>").text("Name: " + tableData[i].customerName),
+            $("<h2>").text("Email: " + tableData[i].customerEmail),
+            $("<h2>").text("Phone: " + tableData[i].phoneNumber)
+          );
+
+          friendsData.append(listItem);
+            
+        }
+    })
+}
+
+module.exports = friendsArray;
