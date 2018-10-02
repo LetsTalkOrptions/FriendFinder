@@ -14,36 +14,53 @@ var friendsArray = [
             4,
             1   
         ]
+    },   
+    {
+        "name":"Peter",
+        "photo":"https://statici.behindthevoiceactors.com/behindthevoiceactors/_img/chars/peter-griffin-family-guy-27.6.jpg",
+        "scores":[
+            3,
+            3,
+            1,
+            4,
+            5,
+            2,
+            4,
+            1,
+            3,
+            4   
+        ]
+    },
+    {   "name":"Pickle Rick",
+        "photo":"https://nerdist.com/wp-content/uploads/2017/08/Pickle-Rick-giveaway.jpg",
+        "scores":[
+            1,
+            2,
+            1,
+            4,
+            3,
+            5,
+            1,
+            2,
+            3,
+            4   
+        ]
+    },
+    {   "name":"Eric Cartman",
+        "photo":"https://treywillis.files.wordpress.com/2015/01/eric_cartman_1280x720_1879301815.jpg?w=620",
+        "scores":[
+            1,
+            3,
+            4,
+            5,
+            2,
+            5,
+            3,
+            1,
+            1,
+            2   
+        ]
     }
 ]
-
-
-
-function runFriendQuery() {
-    $.ajax({ url: "/api/friends", method: "GET" })
-    .then(function(friendsList) {
-        console.log(friendsArray);
-        console.log("--------------------------------");
-
-        // Loop through to show all friends
-        for (var i = 0; i <friendsList.length; i++) {
-            var friendsData = $("#friendsData");
-
-            var listItem = $("<li class='list-group-item mt-4'>");
-
-            listItem.append(
-            $("<h2>").text("" + (i + 1)),
-            $("<hr>"),
-            $("<h2>").text("ID: " + tableData[i].customerID),
-            $("<h2>").text("Name: " + tableData[i].customerName),
-            $("<h2>").text("Email: " + tableData[i].customerEmail),
-            $("<h2>").text("Phone: " + tableData[i].phoneNumber)
-          );
-
-          friendsData.append(listItem);
-            
-        }
-    })
-}
 
 module.exports = friendsArray;
